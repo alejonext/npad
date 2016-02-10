@@ -1,0 +1,119 @@
+//colors
+$color_rangoon_green_approx: #1d1d1d;
+$color_log_cabin_approx: #222;
+$color_mine_shaft_approx: #2f2f2f;
+$gallery: #efefef;
+$color_bunker_approx: #151515;
+
+//@extend-elements
+//original selectors
+//.angular-meditor-toolbar button, .angular-meditor-toolbar select
+%extend_1 {
+	float: left;
+	height: 2.25em;
+	margin: 0;
+	padding: 0.5em 0.75em;
+	background-color: $color_log_cabin_approx;
+	border-width: 1px 0 0 0;
+	border-color: $color_mine_shaft_approx;
+	border-style: solid;
+	//Instead of the line below you could use
+	@include box-shadow(none);
+	font-size: 1em;
+	color: $gallery;
+	//Instead of the line below you could use
+	@include transition(all .1s);
+}
+
+.angular-meditor {
+	position: relative;
+}
+
+.angular-meditor-toolbar {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	border: 1px solid $color_rangoon_green_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	opacity: 0;
+	padding: 0;
+	font-size: 16px;
+	//Instead of the line below you could use
+	@include transition-property(transform, opacity);
+	//Instead of the line below you could use 
+	@include transition-duration(0.075s);
+	//Instead of the line below you could use
+	@include transition-timing-function(ease-out);
+	transform: translate3d(0, 10px, 0);
+	&:after {
+		position: absolute;
+		bottom: -0.4375em;
+		left: 50%;
+		margin-left: -0.1875em;
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		border-width: 0.4375em 0.4375em 0;
+		border-style: solid;
+		border-color: $color_rangoon_green_approx transparent transparent;
+	}
+	ul {
+		overflow: hidden;
+		display: table-row;
+		list-style-type: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 3px;
+	}
+	li {
+		display: table-cell;
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	button {
+		@extend %extend_1;
+		width: 2.5em;
+		&:hover {
+			cursor: pointer;
+			background-color: $color_bunker_approx;
+		}
+	}
+	select {
+		@extend %extend_1;
+		overflow: hidden;
+		width: 4em;
+		text-overflow: ellipsis;
+		&:hover {
+			cursor: pointer;
+			background-color: $color_bunker_approx;
+		}
+	}
+	.meditor-family-selector {
+		width: 7.5em;
+	}
+	.meditor-button--active {
+		background-color: $color_bunker_approx;
+		border-width: 0 0 1px 0;
+	}
+	.meditor-select {
+		position: relative;
+		overflow: hidden;
+		min-width: 3.25em;
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+	}
+	&.angular-meditor-toolbar--bottom:after {
+		bottom: auto;
+		top: -0.4375em;
+		border-width: 0 0.4375em 0.4375em;
+		border-color: transparent transparent $color_rangoon_green_approx;
+	}
+}
+.angular-meditor-toolbar--show {
+	opacity: 1;
+	z-index: 999999;
+	transform: translate3d(0, 0, 0);
+}

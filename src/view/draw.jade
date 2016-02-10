@@ -1,0 +1,12 @@
+extends out
+
+block head
+	title Pizarra de dibujo
+
+block body
+	.column-group.horizontal-gutters
+		.all-80.push-center.top-space
+			canvas.pad.all-100( drawing, width="920", height="600" )
+
+	script( type="application/javascript" src="public/angular.js")
+	script( type="application/javascript" src="public/lib.js")

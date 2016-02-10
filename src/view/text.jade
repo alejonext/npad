@@ -1,0 +1,11 @@
+extends out
+
+block head
+	title Pizarra de texto
+
+block body
+	.column-group.horizontal-gutters( ng-controller="write as w" )
+		.all-80.push-center.top-space( meditor, ng-model="w.contents", ng-keypress="w.getKey()" )
+
+	script( type="application/javascript" src="public/angular.js")
+	script( type="application/javascript" src="public/lib.js")

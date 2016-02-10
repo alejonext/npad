@@ -1,0 +1,19 @@
+extends out
+
+block head
+	title Pizarra
+
+block body
+	.horizontal-gutters.space( ng-controller="admin as a" )
+		.all-100.vertical-space( ng-if="a.IP.length")
+			h1( ng-repeat="inter in a.IP" ) http://{{inter}}:{{a.PORT}}/
+		.all-100
+			.button-group.all-100
+				button.ink-button.all-50( ng-click="a.selectOp('text')", ng-class="{ green : a.selectOr === 'text' }" ) Texto
+				button.ink-button.all-50( ng-click="a.selectOp('draw')", ng-class="{ green : a.selectOr === 'draw' }" ) Dibujo
+			button.ink-button.all-100( ng-click="a.toggleServer()", ng-class="{ green : a.run }" )
+				span( ng-hide="!a.run" ) Recargar naveagador
+				span( ng-hide="a.run" ) Activar!
+
+	script( type="application/javascript" src="public/angular.js")
+	script( type="application/javascript" src="public/admin.js")
