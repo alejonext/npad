@@ -18,13 +18,11 @@ In ths case, the "A" is the computer master or adminstrator. thats, have the pro
 
 Data path
 
-    + app
-    |   + css
-    |   + fonts
-    |   + js ---> Scripts
+    + src -- > APP
+    |   + style
+    |   + script
     |   + views
-    |   + package.json ---> App
-    + client ----> Scripts  for client
+    + dist ----> Packege
     + package.json --> Devolp
 
 ## Installation to devolp
